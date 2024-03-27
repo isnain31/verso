@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  verso:
+    build:
+      context: ./php
+    container_name: verso
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./verso:/var/www/html
+    networks:
+      - verso-network
+
+
+networks:
+  verso-network:
+    driver: bridge
